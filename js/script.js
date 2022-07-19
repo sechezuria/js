@@ -43,9 +43,9 @@ function ingresarDatos () {
     var conDecimal = anosLaborales.toFixed(1);
     alert('LLevas' + " " + conDecimal + " " + "años de antiguedad laboral");
     let diasTomados = prompt("Ingresa dias de vacaciones ya tomados");
-    let resultado = (antiguedad * 1.5) - diasTomados;
+    let resultado = (antiguedad * 1.25) - diasTomados;
     alert("Tienes disponibles" + " "  + resultado + " " + "días de vacaciones");
-    alert("Recuerda que cada mes acumulas 1.5 dias de vacaciones, en caso de hacer otra consulta presiona F5");
+    alert("Recuerda que cada mes acumulas 1.25 dias de vacaciones, en caso de hacer otra consulta presiona F5");
    
    
    
