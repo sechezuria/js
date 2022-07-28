@@ -1,63 +1,67 @@
-// Tienes 3 intentos para constreseña
-// 
-// Si la coloca bien = Saluda y pide nuevos datos
-// Ingresar meses de antiguedad de la empresa
-// 1.5 dias por mes de trabajo
+const array = [
+    []
+]
 
-// Ingresar dias de vacaciones ya tomados
-// Si no se ha tomado dias de vacaciones - hace el calculo total
-// Si tiene, se hace el calculo restando los dias tomados
-
-
-let savedPass = "1"
-
-
-for (let i = 0; i <= 2; i++) {
-    let password = prompt("ingresa tu contraseña");
-    console.log(i, password, i === 2)
-    if (i === 2 && savedPass !== password) {
-        alert("Ha ingresado incorrectamente su contraseña demasiadas veces");
+const users = [{
+        name: 'Saul',
+        lastName: 'Echezuria',
+        password: '1',
+        monthsInCharge: 24,
+        daysOfVacationsUsed: 2
+    },
+    {
+        name: 'Daniela',
+        lastName: 'Garcia',
+        password: '2',
+        monthsInCharge: 7,
+        daysOfVacationsUsed: 0
+    },
+    {
+        name: 'Pedro',
+        lastName: 'Perez',
+        password: '2',
+        monthsInCharge: 7,
+        daysOfVacationsUsed: 0
+    },
+    {
+        name: 'Viviana',
+        lastName: 'Peña',
+        password: '2',
+        monthsInCharge: 36,
+        daysOfVacationsUsed: 10
     }
-    if (savedPass === password) {
-        alert("Contraseña Ingresada Correctamente");
-        saludarConNombre();
-        break;
-    } else if (i < 2 && savedPass !== password) {
-        alert("Contraseña invalida");
-        continue;
+]
+
+
+let userName = prompt("ingresa tu nombre");
+let password = prompt("ingresa tu contrasena");
+let antiguedad;
+let diasTomados;
+let i = parseInt(antiguedad);
+
+for (let i = 0; i <= users.length; i++) {
+    if (userName === users[i].name && password === users[i].password) {
+        antiguedad = users[i].monthsInCharge
+        diasTomados = users[i].daysOfVacationsUsed
+        saludarConNombre()
+
+        function saludarConNombre() {
+            alert("Bienvenido" + " " + userName);
+            if (userName) {
+                ingresarDatos();
+            }
+        }
+
+        function ingresarDatos() {
+            console.log(antiguedad, diasTomados, userName)
+            let anosLaborales = i / 12;
+            var conDecimal = anosLaborales.toFixed(1);
+            let resultado = (antiguedad * 1.25) - diasTomados;
+            alert(userName + ", " + "tienes disponibles" + " " + resultado + " " + "días de vacaciones");
+            alert("Recuerda que cada mes acumulas 1.25 dias de vacaciones, en caso de hacer otra consulta presiona F5");
+        }
+
+    } else {
+        alert('El usuario o la constraseña son incorrectos')
     }
 }
-
-function saludarConNombre () {
-    let nombreUsuario = prompt("Ingresa tu nombre");
-    alert("Bienvenido" + " " + nombreUsuario);
-    if (nombreUsuario) {
-        ingresarDatos();
-    }
-}
-
-function ingresarDatos () {
-    let antiguedad = prompt("Ingresa número de meses en la empresa");
-    let i = parseInt(antiguedad);
-    let anosLaborales = i / 12;
-    var conDecimal = anosLaborales.toFixed(1);
-    alert('LLevas' + " " + conDecimal + " " + "años de antiguedad laboral");
-    let diasTomados = prompt("Ingresa dias de vacaciones ya tomados");
-    let resultado = (antiguedad * 1.25) - diasTomados;
-    alert("Tienes disponibles" + " "  + resultado + " " + "días de vacaciones");
-    alert("Recuerda que cada mes acumulas 1.25 dias de vacaciones, en caso de hacer otra consulta presiona F5");
-   
-   
-   
-   
-/*    Revisiones futuras para validar datos */
-    // if (isNaN(resultado)) {
-    //     alert("no ingreso un numero");
-    //     ingresarDatos()
-    // }
-    // if (!isNaN(resultado)) {
-    //     alert("Tienes disponibles" + " " + resultado + " " + "días de vacaciones");
-   // }
-}
-
-
