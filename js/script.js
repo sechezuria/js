@@ -63,5 +63,6 @@ for (let i = 0; i <= users.length; i++) {
 
     } else {
         alert('El usuario o la constraseña son incorrectos')
+        break;
     }
 }
