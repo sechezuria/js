@@ -1,6 +1,3 @@
-const array = [
-    []
-]
 
 const users = [{
     name: 'Saul',
@@ -33,43 +30,43 @@ const users = [{
 ]
 
 
-let userName = prompt("ingresa tu nombre");
 
+let userName;
+let password;
 let antiguedad;
 let diasTomados;
 let i = parseInt(antiguedad);
 
-for (let i = 0; i <= users.length; i++) {
-    if (userName === users[i].name) {
-        let password = prompt("ingresa tu contrasena");
-        if (password === users[i].password) {
-            antiguedad = users[i].monthsInCharge
-            diasTomados = users[i].daysOfVacationsUsed
-            saludarConNombre()
-            break
-        } else {
-            alert('La contrasena es incorrecta')
-            break
+
+const submit = () => {
+    userName = document.getElementById('user').value
+    password = document.getElementById('password').value
+    test.innerHTML = userName
+
+
+
+    for (let i = 0; i <= users.length; i++) {
+        if (userName === users[i].name) {
+            if (password === users[i].password) {
+                antiguedad = users[i].monthsInCharge
+                diasTomados = users[i].daysOfVacationsUsed
+                let resultado = (antiguedad * 1.25) - diasTomados;
+                form.style.display = 'none';
+                loggedIn.style.display = 'flex';
+                vacationLeft.innerHTML = "Tienes disponibles" + " " + resultado + " " + "días de vacaciones"
+                break
+            } else {
+                alert('La contrasena es incorrecta')
+                break
+            }
+        } else if (i + 1 === users.length && userName !== users[i].name) {
+            alert('No se encontro el usuario')
         }
-    } else if (i + 1 === users.length && userName !== users[i].name) {
-        alert('No se encontro el usuario')
     }
 }
 
 
 
-function ingresarDatos () {
-    let anosLaborales = i / 12;
-    var conDecimal = anosLaborales.toFixed(1);
-    let resultado = (antiguedad * 1.25) - diasTomados;
-    alert(userName + ", " + "tienes disponibles" + " " + resultado + " " + "días de vacaciones");
-    alert("Recuerda que cada mes acumulas 1.25 dias de vacaciones, en caso de hacer otra consulta presiona F5");
-}
 
 
-function saludarConNombre () {
-    alert("Bienvenido" + " " + userName);
-    if (userName) {
-        ingresarDatos();
-    }
-}
+

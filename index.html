@@ -2,27 +2,35 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
+  <link rel="stylesheet" href="./css/styles.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
 </head>
 
 
-
-
-
-
 <body>
-    <P>
-      Sistema para calcuculo de Vacaciones segun normativa Chilena
-    </P>
+
+  <div class="container">
+    <div id="form" class="form">
+      <label>Usuario</label>
+      <input id="user" type="text" />
+      <label>Contrasena</label>
+      <input id="password" type="password" />
+      <button onclick="submit()">Ingresar</button>
+    </div>
+    <div class="loggedContainer" id="loggedIn">
+      <p>Bienvenido</p>
+      <p id="test"></p>
+      <p id="vacationLeft"></p>
+      <p>Recuerda que cada mes acumulas 1.25 dias de vacaciones, en caso de hacer otra consulta presiona F5</p>
+    </div>
+  </div>
 
 
 
-
-
-<script src="./js/script.js"></script>
+  <script src="./js/script.js"></script>
 </body>
 
 </html>
