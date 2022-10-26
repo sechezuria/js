@@ -47,9 +47,6 @@ nombre.addEventListener('input', (event) => {
     }
 }, true);
 
-function pulsaciones() {
-    window.alert("El numero total de pulsaciones es: " + users)
-}
 const submit = () => {
     userName = document.getElementById('user').value
     password = document.getElementById('password').value
@@ -60,9 +57,6 @@ const submit = () => {
     for (let i = 0; i <= users.length; i++) {
         if (userName === users[i].name) {
             if (password === users[i].password) {
-                var retrievedObject = localStorage.getItem('testObject');
-                window.alert(retrievedObject['lastlogin']);
-                users[i].lastlogin = Date.now();
                 antiguedad = users[i].monthsInCharge
                 diasTomados = users[i].daysOfVacationsUsed
                 let resultado = (antiguedad * 1.25) - diasTomados;
